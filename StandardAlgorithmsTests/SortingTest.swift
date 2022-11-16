@@ -20,5 +20,23 @@ class SortingTest: XCTestCase {
         //assert - check the action behaed as we expected
         XCTAssertEqual(sortedArray, expected)
     }
+        
+    func testMergeSortWithUnsortedArrayOfIntegersReturnsSortedArray() {
+        let unsortedArray = [7,2,9,3,6,0,5,4]
+        let expected = [0,2,3,4,5,6,7,9]
+        let sorting = Sorting()
+            
+        let sortedArray = sorting.mergeSort(data : unsortedArray)
+        XCTAssertEqual(sortedArray, expected)
+        }
     
-}
+    func testLinearSearchToFindValue() {
+        let arrayOfIntegers = [2,5,6,7,8,34,3,27,4,18]
+        let valueToFind = 5
+        let sorting = Sorting()
+            
+        let linearTest = sorting.linearSearch(data: arrayOfIntegers, desiredValue: valueToFind)
+        XCTAssert(linearTest)
+        }
+    }
+    
