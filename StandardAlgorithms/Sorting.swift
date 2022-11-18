@@ -29,6 +29,7 @@ class Sorting {
         var sortedArray = [Int]()
         var indexArray1 = 0
         var indexArray2 = 0
+        
         while indexArray1 < array1.count && indexArray2 < array2.count {
             if array1[indexArray1] > array2[indexArray2] {
                 sortedArray.append(array2[indexArray2])
@@ -58,6 +59,7 @@ class Sorting {
         guard data.count > 1 else {
             return data
         }
+        
         let midpoint = data.count / 2
             let firstHalf = mergeSort(data: Array(data[0 ..< midpoint]))
             let secondHalf = mergeSort(data: Array(data[midpoint ..< data.count]))
@@ -98,5 +100,21 @@ class Sorting {
         }
         
         return found
+    }
+    
+    func insertionSort(unsortedArray: [Int]) -> [Int] {
+        var sortedArray = unsortedArray
+        for i in 1 ..< sortedArray.count {
+            var temp = sortedArray[i]
+            var j = i - 1
+            
+            while j >= 0 && sortedArray[j] > temp {
+                sortedArray[j+1] = sortedArray[j]
+                j -= 1
+            }
+            sortedArray[j+1] = temp
+        }
+        
+        return sortedArray
     }
 }

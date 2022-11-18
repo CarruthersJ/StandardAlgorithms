@@ -48,5 +48,14 @@ class SortingTest: XCTestCase {
         let binarySearch = sorting.binarySearch(sortedArray: sortedArray, valueToFind: valueToFind)
         XCTAssert(binarySearch)
     }
+    
+    func testInsertionSortWithUnsortedArrayOfIntegersToReturnSortedArray() {
+        let unsortedArray = [2,5,3,18,6,29,0]
+        let expected = [0,2,3,5,6,18,29]
+        let sorting = Sorting()
+        
+        let sortedArray = sorting.insertionSort(unsortedArray: unsortedArray)
+        XCTAssertEqual(sortedArray, expected)
+    }
     }
     
