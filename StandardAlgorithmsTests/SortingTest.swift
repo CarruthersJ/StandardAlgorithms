@@ -25,10 +25,11 @@ class SortingTest: XCTestCase {
         let unsortedArray = [7,2,9,3,6,0,5,4]
         let expected = [0,2,3,4,5,6,7,9]
         let sorting = Sorting()
-            
+  
         let sortedArray = sorting.mergeSort(data : unsortedArray)
         XCTAssertEqual(sortedArray, expected)
-        }
+    
+    }
     
     func testLinearSearchToFindValue() {
         let arrayOfIntegers = [2,5,6,7,8,34,3,27,4,18]
@@ -38,5 +39,14 @@ class SortingTest: XCTestCase {
         let linearTest = sorting.linearSearch(data: arrayOfIntegers, desiredValue: valueToFind)
         XCTAssert(linearTest)
         }
+    
+    func testBinarySearchToFindValue() {
+        let sortedArray = [1,2,3,4,5,6,7,8,9,10]
+        let valueToFind = 2
+        let sorting = Sorting()
+        
+        let binarySearch = sorting.binarySearch(sortedArray: sortedArray, valueToFind: valueToFind)
+        XCTAssert(binarySearch)
+    }
     }
     
