@@ -105,7 +105,7 @@ class Sorting {
     func insertionSort(unsortedArray: [Int]) -> [Int] {
         var sortedArray = unsortedArray
         for i in 1 ..< sortedArray.count {
-            var temp = sortedArray[i]
+            let temp = sortedArray[i]
             var j = i - 1
             
             while j >= 0 && sortedArray[j] > temp {
@@ -116,5 +116,38 @@ class Sorting {
         }
         
         return sortedArray
+    }
+    
+    func mergeForQuickSort(sortedArray1: [Int], sortedArray2: [Int]) -> [Int] {
+        var concatenatedArrays = [Int]()
+        if sortedArray1[0] > sortedArray2[0] {
+            concatenatedArrays = sortedArray2 + sortedArray1
+        } else if sortedArray2[0] > sortedArray1[0] {
+            concatenatedArrays = sortedArray1 + sortedArray2
+        } else {
+            concatenatedArrays = sortedArray1 + sortedArray2
+        }
+        return concatenatedArrays
+    }
+    
+    func quickSort(unsortedArray: [Int]) -> [Int] {
+        var smallerThanArray = [Int]()
+        var greaterThanArray = [Int]()
+        
+        var array = unsortedArray
+        let length = array.count
+        if array.count > 1 {
+            let midpoint = length / 2
+            for item in array {
+                if item > array[midpoint] {
+                    greaterThanArray.append(item)
+                } else if item < array[midpoint] {
+                    smallerThanArray.append(item)
+                }
+                quickSort(unsortedArray: greaterThanArray)
+                quickSort(unsortedArray: smallerThanArray)
+            }
+        }
+        return mergeForQuickSort(sortedArray1: greaterThanArray, sortedArray2: smallerThanArray)
     }
 }
