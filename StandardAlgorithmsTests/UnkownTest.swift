@@ -27,5 +27,14 @@ class UnkownTest: XCTestCase {
         let mode = unknown.findMode(sortedArray : sortedArray)
         XCTAssertEqual(expected, mode)
     }
+    
+    func testReturnSecondSmallestValueInUnsortedArray() {
+        let array = [1,76,8,2,4,68,0,3]
+        let expected = 1
+        let unknown = Unknown()
+        
+        let secondSmallestValue = unknown.findSecondSmallest(array: array)
+        XCTAssertEqual(expected, secondSmallestValue)
+    }
 
 }

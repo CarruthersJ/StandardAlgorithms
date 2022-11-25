@@ -47,4 +47,23 @@ class Unknown {
         }
         return mode
     }
+    
+    func findSecondSmallest(array: [Int]) -> Optional<Any> {
+        var secondSmallest = array[0]
+        var smallest = array[0]
+        
+        if array.count < 2 {
+            return nil
+        }
+        
+        for item in array {
+            if item < smallest {
+                secondSmallest = smallest
+                smallest = item
+            } else if item > smallest && item < secondSmallest {
+                secondSmallest = item
+            }
+        }
+        return secondSmallest 
+    }
 }

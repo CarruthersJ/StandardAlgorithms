@@ -32,28 +32,7 @@ class SortingTest: XCTestCase {
         }
     }
     
-    func testLinearSearchToFindValue() {
-        measure {
-            let arrayOfIntegers = [2,5,6,7,8,34,3,27,4,18]
-                    let valueToFind = 5
-                    let sorting = Sorting()
-                        
-                    let linearTest = sorting.linearSearch(data: arrayOfIntegers, desiredValue: valueToFind)
-                    XCTAssert(linearTest)
-        }
-    }
     
-    func testBinarySearchToFindValue() {
-        measure {
-            let sortedArray = [1,2,3,4,5,6,7,8,9,10]
-            let valueToFind = 2
-            let sorting = Sorting()
-            
-            let binarySearch = sorting.binarySearch(sortedArray: sortedArray, valueToFind: valueToFind)
-            XCTAssert(binarySearch)
-        }
-        
-    }
     
     func testInsertionSortWithUnsortedArrayOfIntegersToReturnSortedArray() {
         measure {
@@ -66,15 +45,29 @@ class SortingTest: XCTestCase {
         }
       
     }
-    func testQuickSortWithUnsortedArrayOfIntegersToReturnSortedArray() {
-        measure {
-            let unsortedArray = [3,6,8,2,5,1,10,9]
-            let expected = [1,2,3,5,6,8,9,10]
-            let sorting = Sorting()
-            
-            let sortedArray = sorting.quickSort(unsortedArray: unsortedArray)
-            XCTAssertEqual(sortedArray, expected)
-        }
-    }
     }
     
+class SearchingTest: XCTestCase {
+    func testLinearSearchToFindValue() {
+        measure {
+            let arrayOfIntegers = [2,5,6,7,8,34,3,27,4,18]
+                    let valueToFind = 5
+                    let searching = Searching()
+                        
+                    let linearTest = searching.linearSearch(data: arrayOfIntegers, desiredValue: valueToFind)
+                    XCTAssert(linearTest)
+        }
+    }
+    
+    func testBinarySearchToFindValue() {
+        measure {
+            let sortedArray = [1,2,3,4,5,6,7,8,9,10]
+            let valueToFind = 2
+            let searching = Searching()
+            
+            let binarySearch = searching.binarySearch(sortedArray: sortedArray, valueToFind: valueToFind)
+            XCTAssert(binarySearch)
+        }
+        
+    }
+}
